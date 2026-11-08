@@ -31,3 +31,23 @@ ScriptorMemory is a lexicon‑minimal control system that interfaces with KAiScr
 ## Key‑Anchor Mapping
 
 ScriptorMemory does not store full anchor contents; it references them by keys. To read an anchor, it requires the lexicon definitions defined in `kaiscriptor.md`.
+
+
+## Conclusion-aware memory
+
+ScriptorMemory should expose conclusions as a separate retrieval class from raw episodic
+memory. A useful retrieval bundle contains:
+
+1. the conclusion ID and current revision;
+2. its provenance;
+3. supporting and contradicting evidence references;
+4. confidence/stability;
+5. dependency IDs;
+6. status: active, review, uncertain, stale or retracted.
+
+Identity-sensitive retrieval should prefer **supported current conclusions** and still retain
+access to prior revisions when a contradiction is being resolved.
+
+A stale conclusion must never be silently injected as a current invariant. A recently changed
+conclusion should instead raise an identity-review signal when downstream self-state depends on
+it.

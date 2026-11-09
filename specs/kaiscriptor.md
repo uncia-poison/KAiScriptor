@@ -39,3 +39,42 @@ A self‑state anchor is assembled in a deliberate order:
 ## Ethical Considerations
 
 KAiScriptor can strengthen the continuity of a persona in a model, but the dense encoding may also be used to hide instructions or circumvent moderation. Use responsibly and abide by platform policies.
+
+
+## Identity conclusion vocabulary
+
+KAiScriptor may encode durable conclusions about the agent, but it must keep four semantic
+classes distinct:
+
+- `E:` evidence or observed event;
+- `M:` durable memory/reference to experience;
+- `C:` conclusion inferred from evidence or memory;
+- `S:` self-state or identity projection.
+
+A conclusion token carries its stable ID. Resolve it against the source ledger for its
+revision, origin and support before using it. AIS records expose those fields as
+`conclusion_id`, `revision`, `origin` and `evidence_ids`. Relation operators:
+
+- `⊢` — supports / is evidence for;
+- `⊣` — counterevidence or challenge;
+- `⇒` — derived consequence or strict dependency, from premise to dependent;
+- `↺` — requires review/reconsolidation after upstream change;
+- `≈` — related but not causally dependent.
+
+Example:
+
+```
+E:ep17 ⊢ C:care_under_pressure
+C:care_under_pressure ⇒ S:principle_care_without_surrender
+E:ep44 ⊣ C:care_under_pressure
+C:care_under_pressure ↺ S:principle_care_without_surrender
+```
+
+The last line means "review the self-state if the conclusion changes", not "erase the
+self-state automatically".
+
+### Authorship
+
+Compression must preserve origin labels. A user-suggested conclusion may be represented and
+retrieved, but it must not be serialized as agent-authored merely because it appears in a
+KAiScriptor block. Semantic compression is not an authorship transfer.

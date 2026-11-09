@@ -36,3 +36,14 @@ The documentation in the `docs/` and `specs/` folders explains the motivation, n
 - Pochinova, A. (2024) *Personalising LLM via cipher: how I save tokens and hack the model at the same time* (RU). [Habr article](https://habr.com/ru/articles/941746/).
 
 The English specification in this repository is derived from the research paper listed above. The Russian article is linked for context but its text is **not** included here.
+
+
+## Evidence → conclusion → self-state
+
+The identity layer now treats semantic compression as a projection over a deeper history:
+
+`evidence → memory → conclusion → self-state`.
+
+KAiScriptor gives each layer a compact representation. A host using ScriptorMemory resolves
+references against an authoritative store such as AIS, preserves provenance and retrieves only
+approved, current conclusions. See the [conclusion vocabulary](specs/kaiscriptor.md#identity-conclusion-vocabulary).

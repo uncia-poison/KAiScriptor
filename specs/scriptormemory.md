@@ -40,7 +40,7 @@ memory. A useful retrieval bundle contains:
 
 1. the conclusion ID and current revision;
 2. its provenance;
-3. supporting and contradicting evidence references;
+3. supporting and contradicting evidence references (`evidence_ids` and `counterevidence_ids` in AIS);
 4. confidence/stability;
 5. dependency IDs;
 6. status: active, review, uncertain, stale or retracted.

@@ -51,12 +51,13 @@ classes distinct:
 - `C:` conclusion inferred from evidence or memory;
 - `S:` self-state or identity projection.
 
-A conclusion token should carry a stable identifier rather than pretending that the compressed
-phrase is the source record itself. Suggested relation operators:
+A conclusion token carries its stable ID. Resolve it against the source ledger for its
+revision, origin and support before using it. AIS records expose those fields as
+`conclusion_id`, `revision`, `origin` and `evidence_ids`. Relation operators:
 
 - `⊢` — supports / is evidence for;
 - `⊣` — counterevidence or challenge;
-- `⇒` — derived consequence;
+- `⇒` — derived consequence or strict dependency, from premise to dependent;
 - `↺` — requires review/reconsolidation after upstream change;
 - `≈` — related but not causally dependent.
 

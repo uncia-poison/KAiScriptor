@@ -44,6 +44,6 @@ The identity layer now treats semantic compression as a projection over a deeper
 
 `evidence → memory → conclusion → self-state`.
 
-KAiScriptor names and compresses these objects; it does not collapse them. ScriptorMemory can
-retrieve current conclusions together with provenance and dependency references, allowing a
-runtime to preserve identity across model changes while still revising unsupported beliefs.
+KAiScriptor gives each layer a compact representation. A host using ScriptorMemory resolves
+references against an authoritative store such as AIS, preserves provenance and retrieves only
+approved, current conclusions. See the [conclusion vocabulary](specs/kaiscriptor.md#identity-conclusion-vocabulary).
